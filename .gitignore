@@ -1,0 +1,14 @@
+# Binaries & DB
+*.exe
+data.db
+data.db*
+*.log
+
+# Dependencies
+node_modules/
+dist/
+.cache/
+
+# OS Files
+.DS_Store
+Thumbs.db
