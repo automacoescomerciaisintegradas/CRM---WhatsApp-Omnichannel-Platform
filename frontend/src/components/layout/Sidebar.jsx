@@ -26,23 +26,23 @@ const navItems = [
 
 export default function Sidebar() {
   return (
-    <aside className="w-64 bg-slate-950/80 backdrop-blur-xl border-r border-white/10 flex flex-col h-screen select-none relative z-30">
+    <aside className="w-64 bg-[var(--bg-sidebar)] border-r border-[var(--border-color)] flex flex-col h-screen select-none relative z-30 transition-colors">
       {/* Brand Header */}
-      <div className="p-6 border-b border-white/10 flex items-center gap-3">
-        <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-[#0052CC] via-[#2684FF] to-[#00B8D9] flex items-center justify-center shadow-[0_0_20px_rgba(0,184,217,0.4)] p-0.5">
-          <div className="w-full h-full bg-slate-950/40 rounded-[14px] flex items-center justify-center">
-            <Zap className="w-5 h-5 text-cyan-300 font-bold" />
+      <div className="p-6 border-b border-[var(--border-color)] flex items-center gap-3">
+        <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-[var(--primary-main)] to-[var(--primary-light)] flex items-center justify-center shadow-lg p-0.5">
+          <div className="w-full h-full bg-[var(--bg-sidebar)] rounded-[14px] flex items-center justify-center">
+            <Zap className="w-5 h-5 text-[var(--primary-light)] font-bold" />
           </div>
         </div>
         <div>
           <h1 className="font-extrabold text-lg text-white tracking-tight flex items-center gap-1">
-            WhatsMiau<span className="text-cyan-400 text-xl">2</span>
+            WhatsMiau<span className="text-[var(--primary-light)] text-xl">2</span>
           </h1>
-          <p className="text-[11px] font-semibold text-slate-400 tracking-wide uppercase">Omnichannel CRM</p>
+          <p className="text-[11px] font-semibold text-slate-400 tracking-wide uppercase">Manager CRM</p>
         </div>
       </div>
 
-      {/* Nav List with Halo States */}
+      {/* Nav List with Professional Active States */}
       <nav className="flex-1 p-4 space-y-1.5 overflow-y-auto">
         {navItems.map((item) => {
           const Icon = item.icon;
@@ -53,8 +53,8 @@ export default function Sidebar() {
               className={({ isActive }) =>
                 `flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 group ${
                   isActive
-                    ? 'bg-gradient-to-r from-blue-600/20 to-cyan-500/15 text-cyan-300 border border-cyan-400/30 shadow-[0_0_15px_rgba(0,184,217,0.15)] font-semibold'
-                    : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800/50 hover:translate-x-1'
+                    ? 'bg-[var(--primary-main)] text-white shadow-[var(--shadow-button)] font-semibold'
+                    : 'text-slate-400 hover:text-white hover:bg-white/5 hover:translate-x-1'
                 }`
               }
             >
@@ -66,17 +66,17 @@ export default function Sidebar() {
       </nav>
 
       {/* Footer Profile with Orbital Ring */}
-      <div className="p-4 border-t border-white/10 bg-slate-950/60">
-        <div className="flex items-center gap-3 px-2 py-2 rounded-xl bg-slate-900/60 border border-white/5">
-          <div className="orbital-ring w-10 h-10 flex-shrink-0">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-blue-600 to-cyan-400 flex items-center justify-center font-bold text-slate-950 text-xs shadow-md">
+      <div className="p-4 border-t border-[var(--border-color)] bg-black/20">
+        <div className="flex items-center gap-3 px-2 py-2 rounded-xl bg-white/5 border border-white/5">
+          <div className="orbital-ring w-9 h-9 flex-shrink-0">
+            <div className="w-7 h-7 rounded-full bg-[var(--primary-main)] flex items-center justify-center font-bold text-white text-xs shadow-md">
               AC
             </div>
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-semibold text-slate-100 truncate">Admin ACI</p>
-            <p className="text-[11px] text-cyan-400 font-medium flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_6px_#00B8D9] animate-pulse"></span>
+            <p className="text-sm font-semibold text-white truncate">Admin ACI</p>
+            <p className="text-[11px] text-[var(--status-success)] font-medium flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-[var(--status-success)] shadow-[0_0_6px_var(--status-success)] animate-pulse"></span>
               Evolution Online
             </p>
           </div>
