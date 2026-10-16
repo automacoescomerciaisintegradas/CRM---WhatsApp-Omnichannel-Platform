@@ -175,6 +175,21 @@ func (s *Server) RegisterRoutes(mux *http.ServeMux) {
 	// Messages & Payments
 	mux.HandleFunc("/api/crm/messages", s.withCORS(s.HandleMessages))
 	mux.HandleFunc("/api/crm/payments", s.withCORS(s.HandlePayments))
+
+	// Subscriptions & Plans (SaaS Monetization)
+	mux.HandleFunc("/api/v1/plans", s.withCORS(s.HandlePlans))
+	mux.HandleFunc("/api/v1/subscription/me", s.withCORS(s.HandleSubscriptionMe))
+	mux.HandleFunc("/api/v1/subscriptions", s.withCORS(s.HandleSubscriptionsList))
+	mux.HandleFunc("/api/v1/subscription/checkout", s.withCORS(s.HandleSubscriptionCheckout))
+	mux.HandleFunc("/api/v1/subscriptions/action", s.withCORS(s.HandleSubscriptionsAction))
+
+	// Payment Webhooks (Mercado Pago / Gateway)
+	mux.HandleFunc("/api/v1/webhooks/mercadopago", s.withCORS(s.HandlePaymentWebhook))
+	mux.HandleFunc("/webhook/payment", s.withCORS(s.HandlePaymentWebhook))
+
+	// WhatsApp Transactional API (Exact curl specs)
+	mux.HandleFunc("/api/actions/sendMessage", s.withCORS(s.HandleActionSendMessage))
+	mux.HandleFunc("/message/sendText", s.withCORS(s.HandleMessageSendText))
 }
 
 // withCORS is a middleware that injects CORS headers and handles preflight OPTIONS requests.

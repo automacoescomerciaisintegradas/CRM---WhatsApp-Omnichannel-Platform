@@ -9,6 +9,7 @@ import {
   Bot, 
   Megaphone, 
   Settings,
+  CreditCard,
   Sparkles,
   Zap
 } from 'lucide-react';
@@ -21,6 +22,7 @@ const navItems = [
   { name: 'Conexões WhatsApp', path: '/connections', icon: Wifi },
   { name: 'Agentes de IA', path: '/ai-agents', icon: Bot },
   { name: 'Campanhas', path: '/campaigns', icon: Megaphone },
+  { name: 'Assinaturas & Membros', path: '/subscriptions', icon: CreditCard },
   { name: 'Configurações', path: '/settings', icon: Settings },
 ];
 

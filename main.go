@@ -32,8 +32,11 @@ func main() {
 	// Criar router HTTP
 	mux := http.NewServeMux()
 
-	// Registrar rotas do CRM (/api/crm/leads, /api/crm/leads/stats, /api/crm/messages, /api/crm/payments)
+	// Registrar rotas do CRM (/api/crm/leads, /api/crm/leads/stats, /api/crm/messages, /api/crm/payments, subscriptions)
 	crmServer.RegisterRoutes(mux)
+
+	// Iniciar worker de ciclo de vida e suspensão de inadimplentes
+	crmServer.StartSubscriptionWorker()
 
 	// Health check route
 	mux.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {

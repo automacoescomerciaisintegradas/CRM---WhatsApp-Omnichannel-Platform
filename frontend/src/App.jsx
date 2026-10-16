@@ -8,9 +8,11 @@ import Contacts from './pages/Contacts';
 import Kanban from './pages/Kanban';
 import Connections from './pages/Connections';
 import AIAgents from './pages/AIAgents';
+import Subscriptions from './pages/Subscriptions';
 
 const titles = {
   '/': 'Dashboard de Operações',
+  '/subscriptions': 'Assinaturas & Gestão de Membros PIX',
   '/tickets': 'Atendimento ao Cliente (WhatsApp Live)',
   '/contacts': 'Gestão de Leads & Contatos',
   '/kanban': 'Funil de Vendas (Kanban CRM)',
@@ -36,6 +38,7 @@ export default function App() {
         <main className="flex-1 overflow-hidden">
           <Routes>
             <Route path="/" element={<Dashboard />} />
+            <Route path="/subscriptions" element={<Subscriptions />} />
             <Route path="/tickets" element={<Tickets />} />
             <Route path="/contacts" element={<Contacts />} />
             <Route path="/kanban" element={<Kanban />} />
