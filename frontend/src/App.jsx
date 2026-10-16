@@ -25,9 +25,13 @@ export default function App() {
   const title = titles[location.pathname] || 'WhatsMiau2 CRM';
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-slate-950 font-sans text-slate-100">
+    <div className="flex h-screen w-screen overflow-hidden bg-ambient-glow font-sans text-slate-100 relative">
+      {/* Background Orbital Subtle Glow Elements */}
+      <div className="absolute top-[-100px] left-[-80px] w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-[-100px] right-[-80px] w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
       <Sidebar />
-      <div className="flex-1 flex flex-col min-w-0">
+      <div className="flex-1 flex flex-col min-w-0 relative z-10">
         <Header title={title} />
         <main className="flex-1 overflow-hidden">
           <Routes>
